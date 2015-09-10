@@ -36,13 +36,6 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false
                 }
-            },
-            processhtml: {
-                files: ['dev/*.html', 'dev/template/*.html'],
-                tasks: ['processhtml'],
-                options: {
-                    spawn: false
-                }
             }
         }
     };
