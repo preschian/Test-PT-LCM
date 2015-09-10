@@ -1,0 +1,517 @@
+@import 'sanitize/sanitize';
+@import 'bourbon/bourbon';
+@import 'flexible/flexiblegs-plus';
+
+@include font-face("proximanova", "../fonts/proximanova-regular-webfont");
+@include font-face("proximanova", "../fonts/proximanova-regularitalic-webfont", normal, italic);
+@include font-face("proximanova", "../fonts/proximanova-light-webfont", lighter);
+@include font-face("proximanova", "../fonts/proximanova-boldit-webfont", bold, italic);
+
+$blue       : #4eacdd;
+$green      : #14af8f;
+$grey       : #f4f4f4;
+$grey-dark  : #7e7e7e;
+
+@mixin breakpoint($class) {
+    @if $class == sm {
+        @media (max-width: 667px) { @content; }
+    }
+    @else if $class == md {
+        @media (max-width: 768px) { @content; }
+    }
+    @else if $class == lg {
+        @media (max-width: 1024px) { @content; }
+    }
+    @else {
+        @warn "Breakpoint mixin supports: sm, md, lg";
+    }
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    color: $grey-dark;
+    font-family: 'proximanova', sans-serif;
+}
+
+img {
+    display: block;
+
+    &.img-center {
+        margin: 0 auto;
+    }
+}
+
+strong {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btn {
+    border: 2px solid white;
+    border-radius: 2px;
+    color: white;
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 16px 28px;
+    text-transform: uppercase;
+    @include transition-duration(0.4s);
+
+    i {
+        margin-left: 1rem;
+    }
+
+    &:hover {
+        background-color: white;
+        color: $blue;
+    }
+
+    $colors: green #14af8f, pink #ea4c89;
+
+    @each $color, $hex in $colors {
+        &.btn-#{$color} {
+            border-color: #{$hex};
+            color: #{$hex};
+
+            &:hover {
+                background-color: #{$hex};
+                color: white;
+            }
+        }
+    }
+}
+
+.container {
+    background-color: transparent;
+    margin: 0 auto;
+    max-width: 940px;
+
+    &.container-padding {
+        padding: 4rem 0;
+    }
+
+    @include breakpoint(lg) {
+        padding: 0 1rem;
+
+        &.container-padding {
+            padding: 4rem 1rem;
+        }
+    }
+}
+
+.legend {
+    font-size: 70px;
+    font-weight: lighter;
+
+    &.legend-small {
+        color: lighten(black, 35%);
+        font-size: 40px;
+    }
+
+    @include breakpoint(sm) {
+        &.legend-small {
+            font-size: 30px;
+        }
+    }
+}
+
+.list-inline {
+    list-style: none;
+
+    li {
+        display: inline-block;
+    }
+}
+
+.quote {
+    border-left: 6px solid $blue;
+    font-style: italic;
+    padding-left: 1rem;
+}
+
+.wrap {
+    @include wrap;
+
+    .col {
+        vertical-align: top !important;
+        @include col;
+
+        p ~ p {
+            margin-top: 1rem;
+        }
+    }
+
+    .col-left {
+        @include col(7,12);
+    }
+
+    .col-right {
+        @include col(5,12);
+    }
+
+    @include breakpoint(lg) {
+        .col {
+            padding: 0 1rem;
+            vertical-align: middle !important;
+        }
+
+        .col-left {
+            @include col(5,12);
+        }
+
+        .col-right {
+            @include col(7,12);
+        }
+    }
+
+    $queries : sm, md, lg;
+
+    @each $query in $queries {
+        @include breakpoint(#{$query}) {
+            .col-#{$query}-full {
+                @include col(1,1);
+            }
+        }
+    }
+}
+
+
+
+
+
+/*=======================================
+=            crafting styles            =
+=======================================*/
+
+.header {
+    background-image: url(../img/bg-top.png);
+    background-size: cover;
+    color: white;
+
+    .header-top {
+        @include wrap;
+    }
+
+    .header-logo {
+        @include col;
+        @include col(2,12);
+    }
+
+    .header-menu {
+        @include col;
+        @include col(10,12);
+    }
+
+    .header-menu-list {
+        a {
+            display: block;
+            @include transition-duration(0.4s);
+        }
+
+        i {
+            background-color: white;
+            border-radius: 50%;
+            color: $blue;
+            margin-right: 6px;
+            padding: 14px;
+            @include transition-duration(0.4s);
+        }
+
+        a:hover {
+            color: darken($blue, 20%);
+
+            i {
+                background-color: darken($blue, 20%);
+                color: white;
+            }
+        }
+
+        li {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            font-style: italic;
+            padding-left: 2.5rem;
+        }
+    }
+
+    .header-content {
+        padding: 2rem 0;
+    }
+
+    .header-iphone {
+        background-image: url(../img/iphone.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 482px;
+    }
+
+    .header-text {
+        text-align: right;
+        vertical-align: top !important;
+
+        p {
+            font-size: 35px;
+            margin: 2rem 0;
+        }
+    }
+
+    .header-menu-tablet {
+        display: none;
+    }
+
+    @include breakpoint(lg) {
+        .header-menu-tablet {
+            display: block;
+            margin-left: auto;
+            padding: 1rem;
+            text-align: right;
+            width: 50%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            @include border-top-radius(4px);
+            @include transition-duration(0.2s);
+            @include transition-delay(0.2s);
+
+            &.header-menu-tablet-open {
+                background-color: white;
+                color: $blue;
+                @include transition-delay(0s);
+            }
+        }
+
+        .header-menu {
+            position: relative;
+        }
+
+        .header-menu-list {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            width: 50%;
+            @include border-bottom-radius(4px);
+            @include position(absolute, 100% 0 null null);
+            @include transition-duration(0.2s);
+            @include transition-delay(0s);
+
+            li {
+                color: $blue;
+                padding-left: 0;
+                text-align: right;
+                width: 100%;
+            }
+
+            li:last-child, li:last-child a {
+                @include border-bottom-radius(4px);
+            }
+
+            a {
+                line-height: 46px;
+                padding-right: 1rem;
+            }
+
+            a:hover {
+                background-color: $blue;
+                color: white;
+            }
+
+            i {
+                background-color: transparent !important;
+                float: right;
+                margin-right: 0;
+                margin-left: 16px;
+                padding: 14px 0;
+            }
+        }
+
+        .header-menu-list-open {
+            max-height: 12rem;
+            @include transition-delay(0.2s);
+        }
+    }
+
+    @include breakpoint(sm) {
+        .header-menu-list, .header-menu-tablet {
+            width: 100%;
+        }
+
+        .header-content {
+            padding-bottom: 0;
+            @include wrap(flexbox);
+            @include wrap(reverse);
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .header-logo {
+            @include col(3,12);
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .header-menu {
+            @include col(9,12);
+        }
+
+        .header-iphone {
+            background-position: top;
+            height: 280px;
+        }
+    }
+}
+
+.about {
+    background-color: $grey;
+}
+
+.portfolio {
+    background-image: url(../img/devices.png);
+    background-position: left 135%;
+    background-repeat: no-repeat;
+    height: 600px;
+
+    @include breakpoint(lg) {
+        height: 740px;
+    }
+
+    @include breakpoint(sm) {
+        background-position: -12px 108%;
+        background-size: calc(100% + 24px);
+        height: 620px;
+    }
+}
+
+.donate {
+    background-image: url(../img/bg-bottom.png);
+    background-size: cover;
+    background-position: center;
+
+    .donate-content {
+        text-align: center;
+    }
+
+    p {
+        color: white !important;
+    }
+}
+
+.contact {
+    background-color: $grey;
+    padding: 12rem 1rem;
+    @include wrap;
+    @include wrap(center);
+
+    .contact-content {
+        @include col;
+        @include col(1,1);
+    }
+
+    .list-inline {
+        margin-bottom: 4rem;
+
+        a {
+            border: 3px solid lighten(black, 35%);
+            border-radius: 50%;
+            display: block;
+            line-height: 56px;
+            @include size(56px);
+            @include transition-duration(0.4s);
+
+            &:hover {
+                background-color: lighten(black, 35%);
+                
+                i {
+                    color: white;
+                }
+            }
+        }
+
+        i {
+            color: lighten(black, 35%);
+            font-size: 24px;
+        }
+
+        li {
+            margin: 0 1rem;
+        }
+    }
+
+    span {
+        display: inline-block;
+        line-height: 40px;
+        vertical-align: top;
+    }
+
+    .input-group {
+        display: inline-block;
+        margin-left: 1.5rem;
+
+        input {
+            background-color: white;
+            font-style: italic;
+            float: left;
+            padding: 8px 0 8px 16px;
+            @include border-left-radius(8px);
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        a {
+            background-color: white;
+            color: $blue;
+            float: left;
+            line-height: 40px;
+            position: relative;
+            @include border-right-radius(8px);
+            @include size(50px 40px);
+            @include transition-duration(0.4s);
+
+            &:after {
+                background-color: darken($grey, 5%);
+                content: '';
+                @include position(absolute, 50% null null -1px);
+                @include size(1px 14px);
+                @include transform(translateY(-50%));
+            }
+
+            &:hover {
+                color: $grey-dark;
+            }
+        }
+    }
+
+    @include breakpoint(sm) {
+        .list-inline li {
+            margin: 0;
+        }
+
+        .input-group {
+            margin-left: 0;
+        }
+    }
+}
+
+.footer {
+    font-size: 14px;
+    padding: 2rem 0;
+    text-align: center;
+
+    a {
+        color: $blue;
+    }
+
+    span {
+        font-style: italic;
+    }
+
+    @include breakpoint(sm) {
+        font-size: 12px;
+    }
+}

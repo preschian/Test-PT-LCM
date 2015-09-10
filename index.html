@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <title>Test PT LCM</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="header-top">
+            <div class="header-logo">
+                <a href="index.html"><img src="assets/img/logo.png"></a>
+            </div>
+            <div class="header-menu">
+                <a href="javascript:;" class="header-menu-tablet"><i class="fa fa-2x fa-bars"></i></a>
+                <ul class="list-inline header-menu-list">
+                    <li><a href="#!" data-target="home"><i class="fa fa-home"></i> home</a></li>
+                    <li><a href="#!" data-target="about"><i class="fa fa-heart-o"></i> about me</a></li>
+                    <li><a href="#!" data-target="portfolio"><i class="fa fa-desktop"></i> portfolio</a></li>
+                    <li><a href="#!" data-target="contact"><i class="fa fa-envelope-o"></i> drop me a line</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-content wrap">
+            <div class="header-iphone col col-left col-sm-full animate fadeInLeft"></div>
+            <div class="header-text col col-right col-sm-full">
+                <h1 class="legend animate fadeInUp" data-wow-delay="0.2s">Presto,</h1>
+                <p class="animate fadeInUp" data-wow-delay="0.4s">Stupidly simple and flat.</p>
+                <a href="#!" class="btn animate bounceIn" data-wow-delay="1s">Download <i class="fa fa-cloud-download"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="about">
+    <div class="container container-padding">
+        <div class="wrap">
+            <div class="col col-left col-sm-full animate fadeInLeft">
+                <p class="legend legend-small">A Longwinded Header</p>
+                <p>She'll be right paddock how lets throw a ciggies. She'll be right ute to built like a doovalacky. We're going rack off bloody she'll be right pash. You little ripper tucker also get a dog up ya greenie.</p>
+                <p class="quote">You little ripper boozer no worries she'll be right holy dooley!. Come a freo also as cross as a your shout. Lets throw a khe sanh flamin dead dingo's donger. Lets get some fisho with grab us a trackie dacks.</p>
+                <a href="#!" class="btn btn-green animate bounceIn" data-wow-delay="0.6s">SAY HELLO <i class="fa fa-envelope-o"></i></a>
+            </div>
+            <div class="col col-right col-sm-full animate fadeInUp">
+                <img class="img-center col-lg-full" src="assets/img/ipad.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio">
+    <div class="container container-padding">
+        <div class="wrap">
+            <div class="col col-left col-lg-full">&nbsp;</div>
+            <div class="col col-right col-lg-full animate fadeInUp">
+                <p class="legend legend-small">Get a Dog Up Ya’</p>
+                <p><strong>She'll be right paddock how lets throw a ciggies. She'll be right ute to built like a doovalacky.</strong></p>
+                <p>We're going rack off bloody she'll be right pash. You little ripper tucker also get a dog up ya greenie.</p>
+                <a href="#!" class="btn btn-pink animate bounceIn" data-wow-delay="0.6s">VIEW ON DRIBBBLE <i class="fa fa-dribbble"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="donate">
+    <div class="container container-padding">
+        <div class="donate-content">
+            <p class="legend legend-small animate fadeInLeft">Like What You See?</p>
+            <a href="#!" class="btn animate bounceIn" data-wow-delay="0.6s">BUY ME A <strong>BEER?</strong> <i class="fa fa-beer"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="contact">
+    <div class="contact-content">
+        <ul class="list-inline">
+            <li class="animate rotateInDownLeft"><a href="#!"><i class="fa fa-fw fa-dribbble"></i></a></li>
+            <li class="animate rotateInDownLeft" data-wow-delay="0.2s"><a href="#!"><i class="fa fa-fw fa-facebook"></i></a></li>
+            <li class="animate rotateInDownLeft" data-wow-delay="0.4s"><a href="#!"><i class="fa fa-fw fa-twitter"></i></a></li>
+            <li class="animate rotateInDownLeft" data-wow-delay="0.6s"><a href="#!"><i class="fa fa-fw fa-paper-plane-o"></i></a></li>
+        </ul>
+        <form>
+            <span><strong>Newsletter Subscription</strong></span>
+            <div class="input-group animate bounceIn">
+                <input type="text" placeholder="Enter Email">
+                <a href="#!"><i class="fa fa-fw fa-envelope"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; 2015 <a href="index.html">Presto.</a> <span>Breeding pixels since the naughties.</span>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script>
+    wow = new WOW( {
+            boxClass: 'animate',
+            mobile: false
+        }
+    )
+    wow.init();
+
+    $( function() {
+        $( '.header-menu-tablet' ).on( 'click', function() {
+            $( this ).toggleClass( 'header-menu-tablet-open' );
+            $( '.header-menu-list' ).toggleClass( 'header-menu-list-open' );
+        });
+
+        $( '.header-menu-list a' ).on( 'click', function() {
+            getTarget = '.' + $( this ).data( 'target' );
+            
+            $( 'html, body' ).animate({
+                scrollTop: $( getTarget ).offset().top
+            }, 'slow' );
+        });
+    });
+</script>
+
+</body>
+</html>
